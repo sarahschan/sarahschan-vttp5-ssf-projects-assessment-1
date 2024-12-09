@@ -48,7 +48,7 @@ public class AuthenticationRepository {
 
 	// Disable a user for 30 minutes
 	public Boolean disableUser(String username){
-		Long lockDuration = (long) 1;
+		Long lockDuration = (long) 30;
 		Duration expireDuration = Duration.ofMinutes(lockDuration);
 		String redisKey = REDIS_KEY_PREFIX + username;
 		return template.expire(redisKey, expireDuration);
