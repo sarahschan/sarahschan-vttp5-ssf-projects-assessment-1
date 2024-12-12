@@ -104,7 +104,8 @@ public class FrontController {
 		try {
 
 			// Step 3a: Use authenticationService to call the API
-			authenticationService.authenticateSimulator(username, password);
+			//	remember to change between authenticate / authenticateSimulator
+			authenticationService.authenticate(username, password);
 
 			System.out.println("Successful authentication of user " + username);
 

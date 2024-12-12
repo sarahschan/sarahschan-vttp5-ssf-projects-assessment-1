@@ -15,7 +15,7 @@ import vttp2023.batch3.ssf.frontcontroller.respositories.AuthenticationRepositor
 @Service
 public class AuthenticationService {
 
-	private static final String AUTH_URL = "https://authservice-production-e8b2.up.railway.app/api/authenticate";
+	private static final String AUTH_URL = "https://ssf-auth-server-production.up.railway.app/api/authenticate";
 
 	RestTemplate restTemplate = new RestTemplate();
 
@@ -50,6 +50,10 @@ public class AuthenticationService {
 
 			ResponseEntity<String> response = restTemplate.exchange(request, String.class);
 			
+			// System.out.println(response.getStatusCode());
+			// System.out.println(response.getHeaders());
+			// System.out.println(response.getBody());
+
 			// Check if response header is 201 Accepted
 			if (response.getStatusCode() != HttpStatus.ACCEPTED) {
 				throw new Exception("Authentication failed: " + response.getStatusCode() + response.getBody());
